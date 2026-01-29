@@ -1,0 +1,763 @@
+/* Global Styles - Minimalist Cute Black & White */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: "Gaegu", cursive, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Phone Container - Mobile Simulator */
+.phone-container {
+    width: 100%;
+    height: 100%;
+    max-width: 414px; /* iPhone Max width */
+    height: 100dvh; /* Dynamic viewport height */
+    max-height: 100dvh;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 12px solid #000;
+    border-radius: 50px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 450px) {
+    .phone-container {
+        max-width: 100%;
+        max-height: 100dvh;
+        border: none;
+        border-radius: 0;
+    }
+}
+
+/* Status Bar */
+.status-bar {
+    height: 44px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: transparent;
+    pointer-events: none;
+}
+
+.status-icons {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.status-icon-img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.battery-capsule {
+    border: 2px solid #000;
+    border-radius: 20px;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    min-width: 45px;
+}
+
+/* Home Screen */
+.home-screen {
+    flex: 1;
+    padding: 60px 25px 0; /* Increased top padding, removed bottom padding for content flow */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Gap between rows */
+    overflow-y: auto;
+    background:transparent;
+}
+
+.row-container {
+    display: flex;
+    gap: 15px; /* Gap between widget and app group */
+    width: 100%;
+    flex: 0 0 auto; /* Do not stretch vertically */
+    aspect-ratio: 2.1 / 1; /* Maintain aspect ratio for the row */
+}
+
+.widget-wrapper.large-widget {
+    flex: 1;
+    height: 100%;
+    position: relative;
+    aspect-ratio: 1 / 1; /* Make widget square */
+}
+
+.app-group {
+    flex: 1;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 8px; /* Small gap between apps */
+    aspect-ratio: 1 / 1; /* Make app group square */
+}
+
+/* Todo Widget - Photo Frame Style */
+.todo-widget {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border: 3px solid #000;
+    border-radius: 20px; /* Capsule-like */
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 4px 0px #000;
+    transform: rotate(-1deg);
+    transition: transform 0.2s;
+    overflow: hidden;
+    position: relative;
+}
+
+.todo-widget:active {
+    transform: scale(0.98) rotate(-2deg);
+}
+
+.todo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    z-index: 2;
+}
+
+.todo-header h3 {
+    font-size: 16px;
+    font-weight: bold;
+    background: #fff;
+    padding: 1px 4px;
+    border-radius: 4px;
+    border: 1.5px solid #000;
+}
+
+.todo-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+}
+
+.todo-list {
+    list-style: none;
+    flex: 1;
+    overflow-y: auto;
+    font-size: 13px;
+    z-index: 2;
+}
+
+.todo-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.8);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.todo-list li.completed {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.todo-list li .check {
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid #333;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.todo-list li.completed .check {
+    background: #333;
+}
+
+/* Squeeze Widget - Round Capsule */
+.squeeze-widget {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 100px; /* Full Capsule shape */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.1s;
+    border: 3px solid #000;
+    box-shadow: 4px 4px 0px #000;
+    overflow: hidden;
+    position: relative;
+}
+
+.squeeze-widget:active {
+    transform: scale(0.95);
+}
+
+.squeeze-content {
+    text-align: center;
+    z-index: 2;
+}
+
+.squeeze-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10; /* Ensure image stays on top */
+}
+
+#squeezeText {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* App Icons */
+.app-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    cursor: pointer;
+    transition: transform 0.1s;
+    justify-content: center;
+}
+
+.app-icon:active {
+    transform: scale(0.9);
+}
+
+.app-icon-inner {
+    width: 58px; /* Slightly larger icons */
+    height: 58px;
+    background: #fff;
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #000;
+    box-shadow: 2px 2px 0px #000;
+    overflow: hidden;
+    transition: all 0.2s;
+}
+
+.app-icon:active .app-icon-inner {
+    transform: scale(0.95);
+    box-shadow: 1px 1px 0px #000;
+    transform: translate(1px, 1px);
+}
+
+.app-icon-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 0; /* Remove padding for full image */
+}
+
+.app-icon span {
+    font-size: 10px;
+    color: #000;
+    font-weight: 700;
+    margin-top: 2px;
+}
+
+/* Dock Bar */
+.dock-bar {
+    position: absolute;
+    bottom: 35px;
+    left: 25px;
+    right: 25px;
+    height: 80px;
+    background: #fff;
+    border-radius: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 20px;
+    border: 3px solid #000;
+    box-shadow: 5px 5px 0px #000;
+    z-index: 100;
+}
+
+/* Modals & Sub Pages */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: #fff;
+    width: 90%;
+    max-height: 90%;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border: 2px solid #333;
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.modal-body {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 50px;
+}
+
+.sub-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 300;
+    display: flex;
+    flex-direction: column;
+    animation: slideIn 0.3s ease;
+}
+
+.sub-header {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+}
+
+.sub-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.sub-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+    padding-bottom: 100px; /* Prevent bottom content from being hidden */
+}
+
+.back-btn, .menu-btn, .close-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #333;
+    padding: 5px;
+}
+
+.header-action-btn {
+    background: none;
+    border: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #666;
+}
+
+.form-group input, .form-group textarea, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1.5px solid #333;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    background: #fff;
+}
+
+.action-btn {
+    width: 100%;
+    padding: 12px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.action-btn.secondary {
+    background: #fff;
+    color: #333;
+    border: 1.5px solid #333;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100%) translateX(-50%); }
+    to { transform: translateY(0) translateX(-50%); }
+}
+
+.page-enter {
+    animation: slideIn 0.3s ease forwards;
+}
+
+.page-exit {
+    animation: slideOut 0.3s ease forwards;
+}
+
+@keyframes slideOut {
+    from { transform: translateX(0); }
+    to { transform: translateX(100%); }
+}
+
+/* Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+    border: 1.5px solid #333;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border: 1.5px solid #333;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #333;
+}
+
+input:checked + .slider:before {
+    transform: translateX(16px);
+    background-color: #fff;
+}
+
+/* Setting Item */
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.setting-section {
+    margin-bottom: 20px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1.5px solid #333;
+}
+
+.style-options {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.style-option {
+    padding: 5px 15px;
+    border: 2px solid #000;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.style-option.active {
+    background: #000;
+    color: #fff;
+}
+
+.setting-section h3 {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Action Sheet */
+.action-sheet-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.action-sheet-content {
+    background: #fff;
+    border-radius: 20px 20px 0 0;
+    padding: 20px;
+    animation: slideUp 0.3s ease;
+    border-top: 2px solid #333;
+}
+
+.action-sheet-item {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.action-sheet-item:last-child {
+    border-bottom: none;
+    color: #ff4d4f;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+/* In-App Notification - Enhanced for Native Feel */
+.in-app-notification {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    color: #333;
+    padding: 12px 15px;
+    border-radius: 16px;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    animation: notifSlideDown 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.05);
+    transform-origin: top center;
+}
+
+@keyframes notifSlideDown {
+    from { transform: translateY(-100%) scale(0.9); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* Toast Message */
+.toast-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    z-index: 10001;
+    animation: fadeInOut 2s ease forwards;
+    pointer-events: none;
+    text-align: center;
+    max-width: 80%;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translate(-50%, -40%); }
+    10% { opacity: 1; transform: translate(-50%, -50%); }
+    90% { opacity: 1; transform: translate(-50%, -50%); }
+    100% { opacity: 0; transform: translate(-50%, -60%); }
+}
+
+/* Custom Dialog */
+.custom-dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 10002;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(3px);
+}
+
+.custom-dialog {
+    background: #fff;
+    width: 85%;
+    max-width: 320px;
+    border-radius: 20px;
+    padding: 25px;
+    border: 2px solid #333;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.custom-dialog h3 {
+    text-align: center;
+    font-size: 20px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.custom-dialog p {
+    text-align: center;
+    font-size: 15px;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.custom-dialog input, .custom-dialog textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1.5px solid #333;
+    border-radius: 12px;
+    outline: none;
+    font-size: 16px;
+    background: #f9f9f9;
+    transition: all 0.2s;
+}
+
+.custom-dialog input:focus, .custom-dialog textarea:focus {
+    background: #fff;
+    border-color: #000;
+}
+
+.custom-dialog-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.custom-dialog-btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 15px;
+    transition: transform 0.1s;
+}
+
+.custom-dialog-btn:active {
+    transform: scale(0.95);
+}
+
+.custom-dialog-btn.cancel {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.custom-dialog-btn.confirm {
+    background: #333;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
