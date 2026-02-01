@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="theme-color" content="#ffffff">
+
+<link rel="manifest" href="manifest.json">
+
+<link rel="apple-touch-icon" href="icon-192.png">
+    <title>cc</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/qq.css">
+    <link rel="stylesheet" href="css/couple.css">
+    <link rel="stylesheet" href="css/birthday.css">
+    <link rel="stylesheet" href="css/twitter.css">
+    <link rel="stylesheet" href="css/instagram.css">
+    <link rel="stylesheet" href="css/fanfic.css">
+    <link rel="stylesheet" href="css/worldbook.css">
+    <link rel="stylesheet" href="css/shop.css">
+    <link rel="stylesheet" href="css/forum.css">
+    <link rel="stylesheet" href="css/phone_check.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="phone-container">
+
+
+        <!-- 主屏幕 -->
+        <div class="home-screen" id="homeScreen">
+            <!-- 第一行：左大组件，右APP组 -->
+            <div class="row-container">
+                <div class="widget-wrapper large-widget">
+                    <div class="widget-container todo-widget" id="todoWidget">
+                        <input type="file" id="todoUpload" accept="image/*" hidden>
+                        <div class="widget-content">
+                            <div class="todo-header">
+                                <h3>TODO</h3>
+                                <div class="todo-actions">
+                                    <button id="historyBtn" class="icon-btn"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iYmxhY2siPjxwYXRoIGQ9Ik0xMyAzYTkgOSAwIDAgMC05IDlIMWwzLjg5IDMuODkuMDcuMTRMOSAxMkg2YzAtMy44NyAzLjEzLTcgNy03czcgMy4xMyA3IDctMy4xMyA3LTcgN2MtMS45MyAwLTMuNjgtLjc5LTQuOTQtMi4wNmwtMS40MiAxLjQyQTguOTU0IDguOTU0IDAgMCAxIDEzIDIxYTkgOSAwIDAgMSAwLTE4em0tMSA1djVsNC4yOCAyLjU0LjcyLTEuMjEtMy41LTIuMDhWOEgxMnoiLz48L3N2Zz4=" width="16"></button>
+                                    <button id="addTodoBtn" class="add-btn">+</button>
+                                </div>
+                            </div>
+                            <ul class="todo-list" id="todoList"></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="app-group">
+                    <div class="app-icon" id="openForumBtn"><div class="app-icon-inner"><img src="https://placehold.co/100x100/ffffff/000000?text=Forum"></div><span>论坛</span></div>
+                    <div class="app-icon" id="openShopBtn"><div class="app-icon-inner"><img src="https://placehold.co/100x100/ffffff/000000?text=Shop"></div><span>商城</span></div>
+                    <div class="app-icon" id="openWorldbookBtn"><div class="app-icon-inner"><img src="https://placehold.co/100x100/ffffff/000000?text=World"></div><span>世界书</span></div>
+                    <div class="app-icon" id="settingsApp"><div class="app-icon-inner"><img src="https://placehold.co/100x100/ffffff/000000?text=Set"></div><span>设置</span></div>
+                </div>
+            </div>
+            
+            <!-- 第二行：左APP组，右大组件 -->
+            <div class="row-container">
+                <div class="app-group">
+                    <div class="app-icon" id="openCoupleBtn"><div class="app-icon-inner"><img src="https://placehold.co/100x100/ffffff/000000?text=Love"></div><span>情侣空间</span></div>
+                    <div class="app-icon" id="openBirthdayBtn"><div class="app-icon-inner"><img src="https://placehold.co/100x100/ffffff/000000?text=B-Day"></div><span>生日快乐</span></div>
+                    <div class="app-icon" id="openInstagramBtn"><div class="app-icon-inner"><img src="https://placehold.co/100x100/ffffff/000000?text=Ins"></div><span>Instagram</span></div>
+                    <div class="app-icon" id="openFanficBtn"><div class="app-icon-inner"><img src="https://placehold.co/100x100/ffffff/000000?text=Fanfic"></div><span>同人墙</span></div>
+                </div>
+                <div class="widget-wrapper large-widget">
+                    <div class="widget-container squeeze-widget" id="squeezeWidget">
+                        <input type="file" id="squeezeUpload" accept="image/*" hidden>
+                        <div class="squeeze-content">
+                            <img id="squeezeImg" src="" style="display:none;">
+                            <span id="squeezeText">( > 3 < )</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部Dock栏 -->
+        <div class="dock-bar">
+            <div class="app-icon"><div class="app-icon-inner"><img src="https://placehold.co/100x100/ffffff/000000?text=Phone"></div></div>
+            <div class="app-icon" id="openQQBtn"><div class="app-icon-inner"><img src="https://placehold.co/100x100/ffffff/000000?text=QQ"></div></div>
+            <div class="app-icon" id="openTwitterBtn"><div class="app-icon-inner"><img src="https://placehold.co/100x100/ffffff/000000?text=X"></div></div>
+            <div class="app-icon" id="openPhoneCheckBtn"><div class="app-icon-inner"><img src="https://placehold.co/100x100/ffffff/000000?text=Check"></div></div>
+        </div>
+
+        <!-- QQ App 容器 -->
+        <div id="qqApp" class="app-container" style="display: none;">
+            <div class="qq-header">
+                <div class="qq-avatar-small" id="qqHeaderAvatar"></div>
+                <span class="qq-title">消息</span>
+                <div class="qq-header-actions">
+                    <button id="qqAddBtn" class="icon-btn"><i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+
+            <div class="qq-content">
+                <!-- 消息列表 -->
+                <div id="tab-chat" class="qq-tab-page active">
+                    <div class="qq-search-bar"><i class="fas fa-search"></i><input type="text" placeholder="搜索"></div>
+                    <div id="chatList" class="chat-list"></div>
+                </div>
+                <!-- 通讯录 -->
+                <div id="tab-contacts" class="qq-tab-page">
+                    <div class="contact-group">
+                        <div class="group-title">功能</div>
+                        <div class="contact-item" id="btnCreateFriend">
+                            <div class="contact-avatar add-icon"><i class="fas fa-user-plus"></i></div>
+                            <div class="contact-info"><span>创建好友</span></div>
+                        </div>
+                        <div class="contact-item" id="btnCreateGroup">
+                            <div class="contact-avatar add-icon"><i class="fas fa-users"></i></div>
+                            <div class="contact-info"><span>创建群聊</span></div>
+                        </div>
+                    </div>
+                    <div class="contact-group">
+                        <div class="group-title">好友</div>
+                        <div id="contactList"></div>
+                    </div>
+                    <div class="contact-group">
+                        <div class="group-title">群聊</div>
+                        <div id="groupList"></div>
+                    </div>
+                </div>
+                <!-- 动态 -->
+                <div id="tab-moments" class="qq-tab-page">
+                    <div id="momentsContainer"></div>
+                </div>
+                <!-- 我的 -->
+                <div id="tab-me" class="qq-tab-page">
+                    <div class="me-header">
+                        <div class="me-avatar-large" id="meAvatar"></div>
+                        <div class="me-info">
+                            <h2 id="meName" contenteditable="true">点击修改昵称</h2>
+                            <p>QQ: 888888</p>
+                        </div>
+                    </div>
+                    <div class="me-menu">
+                        <div class="menu-item" id="btnWallet"><i class="fas fa-wallet"></i><span>我的钱包</span><span class="menu-arrow">></span></div>
+                        <div class="menu-item" id="btnPresets"><i class="fas fa-address-card"></i><span>角色预设</span><span class="menu-arrow">></span></div>
+                        <div class="menu-item" id="btnFavs"><i class="fas fa-star"></i><span>我的收藏</span><span class="menu-arrow">></span></div>
+                        <div class="menu-item" id="btnQQSettings"><i class="fas fa-cog"></i><span>设置 (API)</span><span class="menu-arrow">></span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="qq-tab-bar">
+                <div class="qq-tab-item active" data-tab="tab-chat"><i class="fas fa-comment"></i><span>消息</span></div>
+                <div class="qq-tab-item" data-tab="tab-contacts"><i class="fas fa-address-book"></i><span>通讯录</span></div>
+                <div class="qq-tab-item" data-tab="tab-moments"><i class="fas fa-star"></i><span>动态</span></div>
+                <div class="qq-tab-item" data-tab="tab-me"><i class="fas fa-user"></i><span>我的</span></div>
+            </div>
+            
+            <div class="home-indicator-area" id="qqHomeBtn"><div class="home-indicator"></div></div>
+        </div>
+
+        <!-- 情侣空间 App 容器 -->
+        <div id="coupleApp" class="app-container" style="display: none; background-color: #f9f9f9;">
+            <!-- 绑定页面 -->
+            <div id="coupleBindPage" class="couple-page bind-page">
+                <div style="font-size: 60px; color: #ff4d4f; margin-bottom: 20px;"><i class="fas fa-heart"></i></div>
+                <h2>开启情侣空间</h2>
+                <p style="color:#666; margin-bottom: 20px;">选择一个好友，开启你们的甜蜜之旅</p>
+                <div class="bind-list" id="bindList"></div>
+                <button class="back-btn" id="closeCoupleApp" style="position:absolute; top:50px; left:10px;"><i class="fas fa-chevron-left"></i></button>
+            </div>
+
+            <!-- 主页 -->
+            <div id="coupleHome" class="couple-page" style="display: none; flex-direction: column; height: 100%;">
+                <div class="couple-header">
+                    <div class="couple-avatars">
+                        <div class="c-avatar" id="cUserAvatar"></div>
+                        <div class="heart-beat"><i class="fas fa-heart"></i></div>
+                        <div class="c-avatar" id="cPartnerAvatar"></div>
+                    </div>
+                    <div class="days-count">
+                        <span>我们已经在一起</span>
+                        <h2 id="daysCount">0</h2>
+                        <span>天啦</span>
+                    </div>
+                    <button class="back-btn" onclick="window.showPage('homeScreen')" style="position:absolute; top:10px; left:10px; color:#fff;"><i class="fas fa-chevron-left"></i></button>
+                </div>
+                
+                <div class="couple-menu">
+                    <div class="c-menu-item" id="btnPhotoWall">
+                        <i class="fas fa-images" style="color:#ff7875;"></i>
+                        <span>照片墙</span>
+                    </div>
+                    <div class="c-menu-item" id="btnNoteBoard">
+                        <i class="fas fa-sticky-note" style="color:#ffc069;"></i>
+                        <span>碎碎念</span>
+                    </div>
+                    <div class="c-menu-item" id="btnDiary">
+                        <i class="fas fa-book" style="color:#95de64;"></i>
+                        <span>心情日记</span>
+                    </div>
+                </div>
+
+                <div style="flex:1; padding: 20px; text-align: center; color: #ccc; font-size: 12px;">
+                    <p>更多功能开发中...</p>
+                </div>
+                
+                <div class="home-indicator-area"><div class="home-indicator"></div></div>
+            </div>
+
+            <!-- 照片墙页面 -->
+            <div id="photoWallPage" class="couple-page sub-page" style="display: none;">
+                <div class="sub-header">
+                    <button class="back-btn" id="closePhotoWall"><i class="fas fa-chevron-left"></i></button>
+                    <span class="sub-title">照片墙</span>
+                    <button class="menu-btn" id="addPhotoBtn"><i class="fas fa-plus"></i></button>
+                </div>
+                <div class="sub-content photo-wall" id="photoList"></div>
+                <input type="file" id="photoInput" hidden accept="image/*">
+            </div>
+
+            <!-- 碎碎念页面 -->
+            <div id="noteBoardPage" class="couple-page sub-page" style="display: none;">
+                <div class="sub-header">
+                    <button class="back-btn" id="closeNoteBoard"><i class="fas fa-chevron-left"></i></button>
+                    <span class="sub-title">碎碎念</span>
+                </div>
+                <div class="sub-content" style="display:flex; flex-direction:column;">
+                    <div class="note-list" id="noteList" style="flex:1; overflow-y:auto;"></div>
+                    <div class="chat-input-area">
+                        <input type="text" id="noteInput" placeholder="写下此刻的想法...">
+                        <button class="send-btn" id="sendNoteBtn">发送</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 日记页面 -->
+            <div id="diaryPage" class="couple-page sub-page" style="display: none;">
+                <div class="sub-header">
+                    <button class="back-btn" id="closeDiary"><i class="fas fa-chevron-left"></i></button>
+                    <span class="sub-title">心情日记</span>
+                    <button class="menu-btn" id="writeDiaryBtn"><i class="fas fa-pen"></i></button>
+                </div>
+                <div class="sub-content diary-list" id="diaryList"></div>
+            </div>
+        </div>
+
+        <!-- 生日 App 容器 -->
+        <div id="birthdayApp" class="app-container" style="display: none;">
+            <!-- 设置页面 -->
+            <div id="birthdaySetup" class="birthday-page birthday-container">
+                <div class="birthday-setup">
+                    <h2>🎂 设置你的生日</h2>
+                    <input type="date" id="birthdayInput">
+                    <button class="party-btn" id="saveBirthdayBtn">保存</button>
+                </div>
+                <button class="back-btn" id="closeBirthdayApp" style="position:absolute; top:50px; left:10px; color:#fff;"><i class="fas fa-chevron-left"></i></button>
+            </div>
+
+            <!-- 倒计时页面 -->
+            <div id="birthdayCountdown" class="birthday-page birthday-container" style="display: none;">
+                <div class="countdown-display">
+                    <span class="countdown-label">距离下次生日还有</span>
+                    <span class="countdown-number" id="countdownDays">0</span>
+                    <span class="countdown-label">天</span>
+                </div>
+                <button class="back-btn" onclick="window.showPage('homeScreen')" style="position:absolute; top:50px; left:10px; color:#fff;"><i class="fas fa-chevron-left"></i></button>
+            </div>
+
+            <!-- 生日派对页面 -->
+            <div id="birthdayParty" class="birthday-page party-mode" style="display: none;">
+                <div class="party-header">🎉 生日快乐！ 🎉</div>
+                
+                <!-- 1. 信件环节 -->
+                <div id="letterSection" style="display:none; width:100%; flex:1; display:flex; flex-direction:column; align-items:center;">
+                    <div class="letter-box" id="birthdayLetter">正在接收来自 AI 的祝福...</div>
+                    <div class="party-actions">
+                        <button class="party-btn" id="startPartyBtn">开始派对！</button>
+                    </div>
+                </div>
+
+                <!-- 2. 做蛋糕环节 -->
+                <div id="cakeSection" style="display:none; width:100%; flex:1; flex-direction:column; align-items:center;">
+                    <p style="margin-bottom:10px;">点击蛋糕 5 次点燃蜡烛！</p>
+                    <div class="cake-game">
+                        <div class="cake-base" id="cakeBase">
+                            <div class="candle">
+                                <div class="flame" id="candleFlame"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="party-actions">
+                        <button class="party-btn" id="skipCakeBtn">跳过</button>
+                    </div>
+                </div>
+
+                <!-- 3. 选择好友环节 -->
+                <div id="friendSelectSection" style="display:none; width:100%; flex:1; flex-direction:column;">
+                    <p style="text-align:center; margin-bottom:10px;">选择为你庆生的朋友</p>
+                    <div class="friend-selector" id="friendSelector"></div>
+                    <div class="party-actions">
+                        <button class="party-btn" id="startCelebrationBtn">开始庆祝</button>
+                    </div>
+                </div>
+
+                <!-- 4. 对话环节 -->
+                <div id="dialogueSection" style="display:none; width:100%; flex:1; flex-direction:column;">
+                    <div class="letter-box" id="birthdayDialogue" style="flex:1;"></div>
+                    <div class="party-actions" id="giftSection" style="display:none;">
+                        <button class="party-btn" id="openGiftBtn">拆礼物 🎁</button>
+                    </div>
+                </div>
+
+                <!-- 5. 礼物环节 (动画在 JS 中处理) -->
+                <div id="giftBox" class="gift-box" style="display:none;">
+                    <div class="gift-lid"></div>
+                    <div class="gift-ribbon"></div>
+                </div>
+
+                <button class="back-btn" onclick="window.showPage('homeScreen')" style="position:absolute; top:10px; left:10px; color:#333;"><i class="fas fa-chevron-left"></i></button>
+            </div>
+        </div>
+
+        <!-- Twitter App 容器 -->
+        <div id="twitterApp" class="app-container twitter-app" style="display: none;">
+            <div class="t-header">
+                <div class="t-avatar-small" id="tAvatarSmall"></div>
+                <div class="t-logo">X</div>
+                <div class="t-header-icon"><i class="fas fa-cog"></i></div>
+                
+                <!-- Account Switcher Modal -->
+                <div class="account-switcher" id="accountSwitcher">
+                    <div id="accountList"></div>
+                </div>
+            </div>
+
+            <div class="t-content">
+                <!-- Home Tab -->
+                <div id="t-home" class="t-tab-page active">
+                    <div id="tweetList"></div>
+                </div>
+
+                <!-- Search Tab -->
+                <div id="t-search" class="t-tab-page">
+                    <div class="t-search-header">
+                        <input type="text" class="t-search-input" placeholder="搜索 X">
+                    </div>
+                    <div id="trendList"></div>
+                </div>
+
+                <!-- Messages Tab -->
+                <div id="t-messages" class="t-tab-page">
+                    <div id="dmList"></div>
+                </div>
+            </div>
+
+            <!-- FAB -->
+            <div class="t-fab" id="tFab"><i class="fas fa-plus"></i></div>
+
+            <!-- Bottom Nav -->
+            <div class="t-nav-bar">
+                <div class="t-nav-item active" data-tab="t-home"><i class="fas fa-home"></i></div>
+                <div class="t-nav-item" data-tab="t-search"><i class="fas fa-search"></i></div>
+                <div class="t-nav-item" data-tab="t-messages"><i class="far fa-envelope"></i></div>
+                <div class="t-nav-item" id="tProfileLink"><i class="far fa-user"></i></div>
+            </div>
+
+            <!-- Profile Page (Overlay) -->
+            <div id="tProfilePage" class="sub-page" style="display: none; z-index: 50;">
+                <div class="t-profile-header">
+                    <div class="t-banner"></div>
+                    <div class="t-profile-avatar" id="tpAvatar"></div>
+                    <button class="back-btn" id="closeTProfile" style="position:absolute; top:10px; left:10px; background:rgba(0,0,0,0.3); color:#fff; border-radius:50%; width:30px; height:30px; display:flex; justify-content:center; align-items:center;"><i class="fas fa-arrow-left"></i></button>
+                </div>
+                <div class="t-profile-actions">
+                    <button class="t-edit-btn" id="tpEditBtn">编辑资料</button>
+                </div>
+                <div class="t-profile-info">
+                    <div class="t-profile-name" id="tpName">Name</div>
+                    <div class="t-profile-handle" id="tpHandle">@handle</div>
+                    <div class="t-profile-bio" id="tpBio">Bio</div>
+                    <div class="t-profile-stats">
+                        <span><span class="t-stat-num" id="tpFollowing">0</span> 正在关注</span>
+                        <span><span class="t-stat-num" id="tpFollowers">0</span> 关注者</span>
+                    </div>
+                </div>
+                <div style="border-bottom: 1px solid #eff3f4; margin-top: 10px;">
+                    <div style="display:flex; justify-content:space-around; padding:10px; font-weight:bold; border-bottom:2px solid #1d9bf0; width:fit-content; margin:0 auto;">推文</div>
+                </div>
+                <!-- User Tweets would go here -->
+            </div>
+
+            <!-- Post Modal -->
+            <div id="tPostModal" class="sub-page" style="display: none; z-index: 60;">
+                <div class="sub-header">
+                    <button class="back-btn" id="closeTPost">取消</button>
+                    <button class="send-btn" id="doTPost" style="background:#1d9bf0; border-radius:20px; padding:5px 15px;">发布</button>
+                </div>
+                <div style="padding:15px;">
+                    <textarea id="tPostInput" placeholder="有什么新鲜事？" style="width:100%; height:150px; border:none; outline:none; font-size:18px; resize:none;"></textarea>
+                </div>
+            </div>
+            
+            <div class="home-indicator-area" onclick="window.showPage('homeScreen')"><div class="home-indicator"></div></div>
+        </div>
+
+        <!-- Instagram App 容器 -->
+        <div id="instagramApp" class="app-container instagram-app" style="display: none;">
+            <div class="ig-header">
+                <div class="ig-logo">Instagram</div>
+                <div class="ig-header-actions">
+                    <i class="far fa-heart"></i>
+                    <i class="far fa-paper-plane"></i>
+                </div>
+            </div>
+
+            <div class="ig-content">
+                <!-- Home Tab -->
+                <div id="ig-home" class="ig-tab-page active">
+                    <div id="igFeed"></div>
+                </div>
+
+                <!-- Search Tab -->
+                <div id="ig-search" class="ig-tab-page">
+                    <div class="ig-search-grid" id="igSearchGrid"></div>
+                </div>
+
+                <!-- Profile Tab -->
+                <div id="ig-profile" class="ig-tab-page">
+                    <div class="ig-profile-header">
+                        <div class="ig-profile-avatar" id="igProfileAvatar"></div>
+                        <div class="ig-profile-stats">
+                            <div><span class="ig-stat-num" id="igStatPosts">0</span><span class="ig-stat-label">Posts</span></div>
+                            <div><span class="ig-stat-num" id="igStatFollowers">0</span><span class="ig-stat-label">Followers</span></div>
+                            <div><span class="ig-stat-num" id="igStatFollowing">0</span><span class="ig-stat-label">Following</span></div>
+                        </div>
+                    </div>
+                    <div class="ig-profile-bio">
+                        <div class="ig-profile-name" id="igProfileName">Name</div>
+                        <div id="igProfileBio">Bio</div>
+                    </div>
+                    <div class="ig-edit-profile" id="igEditProfileBtn">Edit Profile</div>
+                    <div class="ig-search-grid" id="igProfileGrid"></div>
+                </div>
+            </div>
+
+            <!-- Bottom Nav -->
+            <div class="ig-nav-bar">
+                <div class="ig-nav-item active" data-tab="ig-home"><i class="fas fa-home"></i></div>
+                <div class="ig-nav-item" data-tab="ig-search"><i class="fas fa-search"></i></div>
+                <div class="ig-nav-item" data-tab="ig-create"><i class="far fa-plus-square"></i></div>
+                <div class="ig-nav-item" data-tab="ig-likes"><i class="far fa-heart"></i></div>
+                <div class="ig-nav-item" data-tab="ig-profile"><i class="far fa-user"></i></div>
+            </div>
+
+            <!-- Create Post Modal -->
+            <div id="igCreateModal" class="sub-page ig-create-modal" style="display: none; z-index: 60;">
+                <div class="ig-create-header">
+                    <i class="fas fa-times" id="closeIgCreate" style="cursor:pointer;"></i>
+                    <span>New Post</span>
+                    <span id="doIgPost" style="color:#0095f6; cursor:pointer;">Share</span>
+                </div>
+                <div class="ig-create-preview" id="igCreatePreview">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div style="display:flex; justify-content:space-around; padding:10px; border-bottom:1px solid #dbdbdb;">
+                    <button class="small-btn" id="igPhotoOption">Photo</button>
+                    <button class="small-btn" id="igTextOption">Text</button>
+                </div>
+                <textarea class="ig-create-caption" id="igCreateCaption" placeholder="Write a caption..."></textarea>
+                <input type="file" id="igPhotoInput" hidden accept="image/*">
+            </div>
+            
+            <div class="home-indicator-area" onclick="window.showPage('homeScreen')"><div class="home-indicator"></div></div>
+        </div>
+
+        <!-- Fanfic App 容器 (重构) -->
+        <div id="fanficApp" class="app-container fanfic-app" style="display: none;">
+            <div class="ff-header">
+                <div class="ff-title">同人墙</div>
+                <i class="fas fa-pen ff-header-icon" id="ffGenBtn"></i> <!-- 生成键 -->
+                <i class="fas fa-cog ff-header-icon left" id="ffSettingsIcon" style="display:none;"></i>
+            </div>
+            
+            <!-- 板块页面 -->
+            <div id="ffBoardPage" class="ff-page active">
+                <div class="ff-sub-tabs">
+                    <div class="ff-sub-tab active" data-board="reverse">反向</div>
+                    <div class="ff-sub-tab" data-board="fanfic">同人</div>
+                    <div class="ff-sub-tab" data-board="custom">自定</div>
+                </div>
+                <div class="ff-content">
+                    <div id="ffList"></div>
+                </div>
+            </div>
+
+            <!-- 我的页面 -->
+            <div id="ffMePage" class="ff-page" style="display:none;">
+                <!-- JS 填充 -->
+            </div>
+
+            <!-- 底部导航 -->
+            <div class="ff-nav">
+                <div class="ff-nav-item active" data-tab="board"><i class="fas fa-layer-group"></i><span>板块</span></div>
+                <div class="ff-nav-item" data-tab="me"><i class="fas fa-user"></i><span>我的</span></div>
+            </div>
+
+            <!-- Generator Modal -->
+            <div id="ffGeneratorModal" class="sub-page" style="display: none; z-index: 60;">
+                <div class="sub-header">
+                    <button class="back-btn" id="closeFfGenerator">取消</button>
+                    <span class="sub-title">生成文章</span>
+                    <button class="send-btn" id="doFfGenerate">生成</button>
+                </div>
+                <div class="ff-modal-content">
+                    <div class="ff-input-group">
+                        <label>生成要求</label>
+                        <textarea id="ffPromptInput" placeholder="输入你的脑洞，例如：写一个我们在雨中漫步的场景..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Modal -->
+            <div id="ffSettingsModal" class="sub-page" style="display: none; z-index: 60;">
+                <div class="sub-header">
+                    <button class="back-btn" id="closeFfSettings">取消</button>
+                    <span class="sub-title">板块设定</span>
+                    <button class="send-btn" id="saveFfSettings">保存</button>
+                </div>
+                <div class="ff-modal-content">
+                    <div class="ff-input-group">
+                        <label>世界观/规则设定</label>
+                        <textarea id="ffCustomRules" placeholder="输入这个板块的世界观、规则或特殊设定..." style="height: 200px;"></textarea>
+                    </div>
+                    <div style="display:flex; gap:10px;">
+                        <button class="action-btn secondary" id="exportFfSettings">导出设定</button>
+                        <button class="action-btn secondary" id="importFfSettings">导入设定</button>
+                        <input type="file" id="importFfInput" hidden accept=".json">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reader Modal -->
+            <div id="ffReaderModal" class="sub-page" style="display: none; z-index: 70;">
+                <div class="sub-header">
+                    <button class="back-btn" id="closeFfReader"><i class="fas fa-chevron-left"></i></button>
+                    <span class="sub-title">阅读</span>
+                </div>
+                <div class="ff-reader">
+                    <div class="ff-reader-content">
+                        <div class="ff-reader-title" id="ffReaderTitle"></div>
+                        <div id="ffReaderContent"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="home-indicator-area" onclick="window.showPage('homeScreen')"><div class="home-indicator"></div></div>
+        </div>
+
+        <!-- Worldbook App 容器 -->
+        <div id="worldbookApp" class="app-container" style="display: none; background:#f5f5f5;">
+            <div class="wb-header">
+                <button class="back-btn" id="wbBackBtn" style="display:none;"><i class="fas fa-chevron-left"></i></button>
+                <div class="wb-title" id="wbTitle">世界书</div>
+                <button class="menu-btn" id="wbImportBtn"><i class="fas fa-file-import"></i></button>
+                <input type="file" id="wbImportInput" hidden accept=".json">
+            </div>
+            
+            <div class="wb-tabs">
+                <div class="wb-tab active" data-tab="books">书籍管理</div>
+                <div class="wb-tab" data-tab="bind">角色绑定</div>
+            </div>
+
+            <div class="wb-content" id="wbBooksPage">
+                <div id="wbList"></div>
+            </div>
+            
+            <div class="wb-content" id="wbBindPage" style="display:none;">
+                <div id="wbBindList"></div>
+            </div>
+
+            <div class="wb-fab" id="wbFab"><i class="fas fa-plus"></i></div>
+
+            <!-- Entry Editor Modal -->
+            <div id="wbEntryModal" class="sub-page" style="display: none; z-index: 60;">
+                <div class="sub-header">
+                    <button class="back-btn" id="closeWbEntry">取消</button>
+                    <span class="sub-title">编辑条目</span>
+                    <button class="send-btn" id="saveWbEntry">保存</button>
+                </div>
+                <div class="sub-content form-content">
+                    <div class="form-group">
+                        <label>触发关键词 (逗号分隔)</label>
+                        <input type="text" id="wbEntryKeys" placeholder="例如: 魔法, 城堡">
+                    </div>
+                    <div class="form-group">
+                        <label>内容</label>
+                        <textarea id="wbEntryContent" placeholder="输入世界书内容..." style="height:200px;"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="home-indicator-area" onclick="window.showPage('homeScreen')"><div class="home-indicator"></div></div>
+        </div>
+
+        <!-- Shop App 容器 -->
+        <div id="shopApp" class="app-container shop-app" style="display: none;">
+            <div class="shop-header">
+                <div class="shop-search-bar"><i class="fas fa-search"></i><input type="text" id="shopSearchInput" placeholder="搜索商品"></div>
+                <div class="shop-header-icons">
+                    <i class="fas fa-shopping-cart" onclick="window.ShopApp.currentTab='cart';window.ShopApp.render()"></i>
+                    <i class="fas fa-comment-dots" onclick="window.ShopApp.currentTab='chat';window.ShopApp.render()"></i>
+                </div>
+            </div>
+            
+            <div class="shop-tabs">
+                <div class="shop-tab active" data-mode="shopping">商城购物</div>
+                <div class="shop-tab" data-mode="takeout">外卖点餐</div>
+            </div>
+
+            <div class="shop-content">
+                <!-- Home Tab -->
+                <div id="shop-home" class="shop-page active">
+                    <div class="shop-banner"></div>
+                    <div class="shop-grid" id="shopGrid"></div>
+                </div>
+
+                <!-- Cart Tab -->
+                <div id="shop-cart" class="shop-page" style="display:none;">
+                    <div class="shop-page-header">购物车</div>
+                    <div id="shopCartList"></div>
+                    <div class="cart-footer">
+                        <div class="cart-total">合计: ¥<span id="cartTotal">0.00</span></div>
+                        <button class="shop-btn buy" id="btnCartPay">结算</button>
+                        <button class="shop-btn" id="btnCartPayForMe" style="background:#ff9f43;">找人付</button>
+                    </div>
+                </div>
+
+                <!-- Chat Tab -->
+                <div id="shop-chat" class="shop-page" style="display:none;">
+                    <div class="shop-page-header">消息</div>
+                    <div id="shopChatList"></div>
+                </div>
+
+                <!-- Me Tab -->
+                <div id="shop-me" class="shop-page" style="display:none;">
+                    <div class="shop-me-header">
+                        <div class="shop-me-avatar"></div>
+                        <div class="shop-me-name" id="shopMeName"></div>
+                    </div>
+                    <div class="shop-me-stats">
+                        <div>余额: ¥<span id="shopMeBalance">0.00</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shop-nav">
+                <div class="shop-nav-item active" data-tab="home"><i class="fas fa-home"></i><span>首页</span></div>
+                <div class="shop-nav-item" data-tab="cart"><i class="fas fa-shopping-cart"></i><span>购物车</span></div>
+                <div class="shop-nav-item" data-tab="chat"><i class="fas fa-comment-dots"></i><span>消息</span></div>
+                <div class="shop-nav-item" data-tab="me"><i class="fas fa-user"></i><span>我的</span></div>
+            </div>
+            
+            <div class="home-indicator-area" onclick="window.showPage('homeScreen')"><div class="home-indicator"></div></div>
+        </div>
+
+        <!-- Forum App 容器 (重构) -->
+        <div id="forumApp" class="app-container forum-app" style="display: none;">
+            <div class="forum-header">
+                <div class="forum-title">论坛</div>
+                <div class="forum-search-bar"><i class="fas fa-search"></i><input type="text" id="forumSearchInput" placeholder="搜索"></div>
+                <i class="fas fa-cog" id="forumSettingsBtn" style="margin-left:10px;color:#666;"></i>
+            </div>
+
+            <div class="forum-content">
+                <!-- Home Tab -->
+                <div id="forum-home" class="forum-page active">
+                    <div class="forum-gen-btn" id="genHomeBtn" style="position:absolute; bottom:90px; right:20px; width:50px; height:50px; background:#6c5ce7; color:white; border-radius:50%; display:flex; justify-content:center; align-items:center; box-shadow:0 4px 10px rgba(0,0,0,0.2); z-index:100;"><i class="fas fa-magic"></i></div>
+                    <div id="forumHomeList"></div>
+                </div>
+
+                <!-- Boards Tab -->
+                <div id="forum-boards" class="forum-page" style="display:none;">
+                    <div class="forum-gen-btn" id="genBoardBtn" style="position:absolute; bottom:90px; right:20px; width:50px; height:50px; background:#6c5ce7; color:white; border-radius:50%; display:flex; justify-content:center; align-items:center; box-shadow:0 4px 10px rgba(0,0,0,0.2); z-index:100;"><i class="fas fa-magic"></i></div>
+                    <div id="forumBoardList"></div>
+                </div>
+
+                <!-- Market Tab -->
+                <div id="forum-market" class="forum-page" style="display:none;">
+                    <div class="forum-gen-btn" id="genMarketBtn" style="position:absolute; bottom:90px; right:20px; width:50px; height:50px; background:#6c5ce7; color:white; border-radius:50%; display:flex; justify-content:center; align-items:center; box-shadow:0 4px 10px rgba(0,0,0,0.2); z-index:100;"><i class="fas fa-magic"></i></div>
+                    <div id="forumMarketList"></div>
+                </div>
+
+                <!-- Chat Tab -->
+                <div id="forum-chat" class="forum-page" style="display:none;">
+                    <div class="forum-gen-btn" id="genChatBtn" style="position:absolute; bottom:90px; right:20px; width:50px; height:50px; background:#6c5ce7; color:white; border-radius:50%; display:flex; justify-content:center; align-items:center; box-shadow:0 4px 10px rgba(0,0,0,0.2); z-index:100;"><i class="fas fa-magic"></i></div>
+                    <div id="forumChatList"></div>
+                </div>
+
+                <!-- Me Tab -->
+                <div id="forum-me" class="forum-page" style="display:none;">
+                    <div id="forum-me"></div>
+                </div>
+            </div>
+
+            <div class="forum-nav">
+                <div class="forum-nav-item active" data-tab="home"><i class="fas fa-home"></i><span>首页</span></div>
+                <div class="forum-nav-item" data-tab="boards"><i class="fas fa-layer-group"></i><span>板块</span></div>
+                <div class="forum-nav-item" data-tab="market"><i class="fas fa-store"></i><span>商城</span></div>
+                <div class="forum-nav-item" data-tab="chat"><i class="fas fa-comment"></i><span>私信</span></div>
+                <div class="forum-nav-item" data-tab="me"><i class="fas fa-user"></i><span>我的</span></div>
+            </div>
+            
+            <div class="home-indicator-area" onclick="window.showPage('homeScreen')"><div class="home-indicator"></div></div>
+        </div>
+
+        <!-- 弹窗：创建好友/群聊 -->
+        <div id="createModal" class="sub-page" style="display: none;">
+            <div class="sub-header">
+                <button class="back-btn" id="closeCreateModal"><i class="fas fa-chevron-left"></i></button>
+                <span class="sub-title" id="createTitle">创建</span>
+            </div>
+            <div class="sub-content form-content">
+                <!-- 动态注入表单 -->
+            </div>
+        </div>
+
+        <!-- 弹窗：聊天窗口 -->
+        <div id="chatWindow" class="sub-page" style="display: none;">
+            <div class="sub-header">
+                <button class="back-btn" id="closeChatWindow"><i class="fas fa-chevron-left"></i></button>
+                <div class="chat-header-info">
+                    <span class="sub-title" id="chatTitle">聊天</span>
+                    <span class="chat-status" id="chatStatus"></span>
+                </div>
+                <button class="menu-btn" id="openChatSettings"><i class="fas fa-ellipsis-h"></i></button>
+            </div>
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input-area">
+                <input type="file" id="chatImgInput" hidden accept="image/*">
+                <!-- 工具栏将由 JS 动态插入到这里 -->
+                <div class="chat-input-row">
+                    <button class="chat-tool-btn" id="btnForceReply" title="让角色回复"><i class="fas fa-comment-dots"></i></button>
+                    <input type="text" id="chatInput" placeholder="发消息...">
+                    <button class="send-btn" id="btnChatSend">发送</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 弹窗：聊天设置 -->
+        <div id="chatSettingsModal" class="sub-page" style="display: none;">
+            <div class="sub-header">
+                <button class="back-btn" id="closeChatSettings"><i class="fas fa-chevron-left"></i></button>
+                <span class="sub-title">聊天设置</span>
+            </div>
+            <div class="sub-content settings-content" id="chatSettingsContent">
+                <!-- 动态注入 -->
+            </div>
+        </div>
+
+        <!-- 弹窗：钱包 -->
+        <div id="walletModal" class="sub-page" style="display: none;">
+            <div class="sub-header">
+                <button class="back-btn" id="closeWallet"><i class="fas fa-chevron-left"></i></button>
+                <span class="sub-title">钱包</span>
+            </div>
+            <div class="wallet-card">
+                <p>余额</p>
+                <h1 id="walletBalance">0.00</h1>
+                <button class="small-btn" id="btnModifyBalance">修改余额</button>
+            </div>
+            <div class="wallet-history">
+                <h3>收支明细</h3>
+                <ul id="walletList"></ul>
+            </div>
+        </div>
+
+        <!-- 弹窗：预设管理 -->
+        <div id="presetModal" class="sub-page" style="display: none;">
+            <div class="sub-header">
+                <button class="back-btn" id="closePresets"><i class="fas fa-chevron-left"></i></button>
+                <span class="sub-title">角色预设</span>
+                <button class="menu-btn" id="btnAddPreset"><i class="fas fa-plus"></i></button>
+            </div>
+            <div class="sub-content" id="presetList"></div>
+        </div>
+
+        <!-- 弹窗：收藏夹 (新增) -->
+        <div id="favModal" class="sub-page" style="display: none;">
+            <div class="sub-header">
+                <button class="back-btn" onclick="document.getElementById('favModal').style.display='none'"><i class="fas fa-chevron-left"></i></button>
+                <span class="sub-title">我的收藏</span>
+            </div>
+            <div class="sub-content" id="favList">
+                <div style="text-align:center;color:#999;margin-top:20px;">暂无收藏内容</div>
+            </div>
+        </div>
+
+        <!-- 弹窗：发动态 -->
+        <div id="postMomentModal" class="sub-page" style="display: none;">
+            <div class="sub-header">
+                <button class="back-btn" id="closePostMoment">取消</button>
+                <span class="sub-title">发动态</span>
+                <button class="send-btn" id="doPostMoment">发表</button>
+            </div>
+            <div class="post-content">
+                <textarea id="momentText" placeholder="这一刻的想法..."></textarea>
+                <div class="image-uploader" id="momentImgUploader"><i class="fas fa-plus"></i></div>
+                <input type="file" id="momentImgInput" hidden accept="image/*">
+                <div id="momentImgPreview" class="image-preview"></div>
+                <div class="form-group" style="margin-top: 20px;">
+                    <label>谁可以看</label>
+                    <select id="momentVisibility" multiple style="height: 100px;"></select>
+                </div>
+            </div>
+        </div>
+
+        <!-- 设置模态框 -->
+        <div id="settingsModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>设置</h2>
+                    <button id="closeSettings" class="close-btn"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <!-- 1. API 配置 -->
+                    <div class="setting-section">
+                        <h3><i class="fas fa-link"></i> API 接入</h3>
+                        <div class="input-group">
+                            <label>聊天 API 地址</label>
+                            <input type="text" id="chatApiUrl" placeholder="例如: https://api.openai.com/v1">
+                        </div>
+                        <div class="input-group">
+                            <label>聊天 API Key</label>
+                            <input type="password" id="chatApiKey" placeholder="sk-...">
+                        </div>
+                        <div class="button-row" style="margin-bottom: 10px;">
+                            <button id="fetchModelsBtn" class="action-btn secondary">获取模型列表</button>
+                        </div>
+                        <div class="input-group">
+                            <label>选择聊天模型</label>
+                            <select id="chatModelSelect">
+                                <option value="">请先获取模型</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label>自定义破限/System Prompt (可选)</label>
+                            <textarea id="customBreakLimit" placeholder="输入额外的 System Prompt，例如：请使用中文回复，不要使用敬语..." rows="3" style="width:100%; border:1.5px solid #333; border-radius:10px; padding:5px;"></textarea>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>绘画 API 地址</label>
+                            <input type="text" id="imageApiUrl" placeholder="API Endpoint">
+                        </div>
+                        <div class="input-group">
+                            <label>绘画 API Key</label>
+                            <input type="password" id="imageApiKey">
+                        </div>
+                        <div class="input-group">
+                            <label>语音 TTS 地址</label>
+                            <input type="text" id="ttsApiUrl" placeholder="API Endpoint">
+                        </div>
+                        <div class="input-group">
+                            <label>语音 TTS Key</label>
+                            <input type="password" id="ttsApiKey">
+                        </div>
+                        <button id="saveApiBtn" class="action-btn">保存配置</button>
+                    </div>
+
+                    <!-- God Mode (Injected by JS) -->
+                    <div id="godModeContainer"></div>
+
+                    <!-- 2. 外观与个性化 -->
+                    <div class="setting-section">
+                        <h3><i class="fas fa-paint-brush"></i> 外观与个性化</h3>
+                        
+                        <!-- 壁纸 -->
+                        <div class="sub-section">
+                            <label>更换壁纸</label>
+                            <button id="wallpaperBtn" class="action-btn secondary">上传壁纸图片</button>
+                            <input type="file" id="wallpaperInput" hidden accept="image/*">
+                            <button id="resetWallpaperBtn" class="action-btn secondary" style="margin-top:5px;">重置壁纸</button>
+                        </div>
+
+                        <!-- 捏捏样式 -->
+                        <div class="sub-section">
+                            <label>捏捏样式</label>
+                            <div class="style-options">
+                                <div class="style-option" data-style="default">默认</div>
+                                <div class="style-option" data-style="rabbit">兔耳</div>
+                                <div class="style-option" data-style="cat">猫耳</div>
+                                <div class="style-option" data-style="box">小盒子</div>
+                            </div>
+                        </div>
+
+                        <!-- 自定义 CSS -->
+                        <div class="sub-section">
+                            <label>自定义 CSS 美化</label>
+                            <textarea id="customCssInput" placeholder="输入 CSS 代码..." rows="4" style="width:100%; border:2px solid #000; border-radius:10px; padding:5px;"></textarea>
+                            <button id="applyCssBtn" class="action-btn secondary">应用 CSS</button>
+                        </div>
+                    </div>
+
+                    <!-- 3. 应用图标管理 -->
+                    <div class="setting-section">
+                        <h3><i class="fas fa-icons"></i> 应用图标管理</h3>
+                        <div id="appList" class="app-list-container">
+                            <!-- JS 动态生成 -->
+                        </div>
+                        <input type="file" id="iconInput" hidden accept="image/*">
+                    </div>
+
+                    <!-- 4. 活动频率 -->
+<div class="sub-section">
+    <label>自动活动间隔 (分钟)</label>
+    <input type="number" id="activityFrequency" min="0" placeholder="0 = 禁用">
+    <div style="font-size: 12px; color: #666; margin-top: 5px;">
+        设置为 0 将完全禁用自动活动生成和离线推演<br>
+        推荐值：10-30 分钟
+    </div>
+</div>
+
+
+                    <!-- 5. 浏览器通知 -->
+                    <div class="setting-section">
+                        <h3><i class="fas fa-bell"></i> 通知</h3>
+                        <div class="toggle-row">
+                            <span>允许浏览器通知</span>
+                            <label class="switch">
+                                <input type="checkbox" id="notificationToggle">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 6. 备份与恢复 -->
+                    <div class="setting-section">
+                        <h3><i class="fas fa-save"></i> 数据备份</h3>
+                        <div class="button-row">
+                            <button id="backupBtn" class="action-btn secondary">导出备份</button>
+                            <button id="restoreBtn" class="action-btn secondary">导入备份</button>
+                            <input type="file" id="restoreInput" hidden accept=".json">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 历史记录模态框 -->
+        <div id="historyModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>历史计划</h2>
+                    <button id="closeHistory" class="close-btn"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div id="historyList" class="history-list">
+                        <!-- JS 动态生成 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- Scripts -->
+    <script src="js/db.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/system.js"></script>
+    <script src="js/apps/qq.js"></script>
+    <script src="js/apps/couple.js"></script>
+    <script src="js/apps/birthday.js"></script>
+    <script src="js/apps/twitter.js"></script>
+    <script src="js/apps/instagram.js"></script>
+    <script src="js/apps/fanfic.js"></script>
+    <script src="js/apps/worldbook.js"></script>
+    <script src="js/apps/shop.js"></script>
+    <script src="js/apps/forum.js"></script>
+    <script src="js/apps/diary.js"></script>
+    <script src="js/apps/app_usage.js"></script>
+    <script src="js/apps/phone_check.js"></script>
+<script>
+(function() {
+  // ========== 获取手机容器 ==========
+  var phoneContainer = document.querySelector('.phone-container');
+  if (!phoneContainer) {
+    console.warn('未找到 .phone-container');
+    return;
+  }
+
+  // ========== 创建样式 ==========
+  var style = document.createElement('style');
+  style.textContent = `
+    #fb-ball {
+      position: absolute !important;
+      width: 42px !important;
+      height: 42px !important;
+      background: linear-gradient(145deg, #fff 0%, #ffe4ec 100%) !important;
+      border: 2px solid #ffb6c1 !important;
+      border-radius: 50% !important;
+      box-shadow: 0 2px 8px rgba(255,182,193,0.4) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      cursor: pointer !important;
+      z-index: 9999 !important;
+      user-select: none !important;
+      touch-action: none !important;
+      transition: transform 0.15s, box-shadow 0.15s !important;
+    }
+    #fb-ball:active {
+      transform: scale(0.9) !important;
+      box-shadow: 0 1px 4px rgba(255,182,193,0.3) !important;
+    }
+    #fb-ball.fb-hidden {
+      display: none !important;
+    }
+    #fb-ball .fb-icon {
+      font-size: 18px !important;
+      pointer-events: none !important;
+    }
+
+    #fb-menu {
+      position: absolute !important;
+      background: #fff !important;
+      border: 2px solid #ffb6c1 !important;
+      border-radius: 14px !important;
+      box-shadow: 0 4px 15px rgba(255,182,193,0.3) !important;
+      padding: 8px !important;
+      z-index: 9999 !important;
+      display: none !important;
+      flex-direction: column !important;
+      gap: 6px !important;
+    }
+    #fb-menu.fb-show {
+      display: flex !important;
+    }
+    #fb-menu .fb-btn {
+      padding: 12px 18px !important;
+      border: 1.5px solid #eee !important;
+      background: #fafafa !important;
+      border-radius: 10px !important;
+      font-size: 14px !important;
+      font-weight: bold !important;
+      cursor: pointer !important;
+      text-align: center !important;
+      color: #333 !important;
+      white-space: nowrap !important;
+      transition: all 0.1s !important;
+    }
+    #fb-menu .fb-btn:active {
+      background: #f0f0f0 !important;
+      transform: scale(0.96) !important;
+    }
+    #fb-menu .fb-btn-back {
+      background: #e8f4fd !important;
+      border-color: #90caf9 !important;
+      color: #1976d2 !important;
+    }
+    #fb-menu .fb-btn-exit {
+      background: #ffebee !important;
+      border-color: #ef9a9a !important;
+      color: #c62828 !important;
+    }
+    #fb-menu .fb-btn-hide {
+      background: #fff8e1 !important;
+      border-color: #ffcc80 !important;
+      color: #ef6c00 !important;
+    }
+
+    #fb-bar {
+      position: absolute !important;
+      width: 6px !important;
+      height: 50px !important;
+      background: linear-gradient(180deg, #fff 0%, #ffe4ec 100%) !important;
+      border: 1.5px solid #ffb6c1 !important;
+      cursor: pointer !important;
+      z-index: 9999 !important;
+      display: none !important;
+      transition: all 0.2s !important;
+    }
+    #fb-bar:active {
+      width: 10px !important;
+    }
+    #fb-bar.fb-show {
+      display: block !important;
+    }
+    #fb-bar.fb-left {
+      left: 0 !important;
+      border-radius: 0 6px 6px 0 !important;
+      border-left: none !important;
+    }
+    #fb-bar.fb-right {
+      right: 0 !important;
+      border-radius: 6px 0 0 6px !important;
+      border-right: none !important;
+    }
+  `;
+  document.head.appendChild(style);
+
+  // ========== 创建元素（放入 phoneContainer 内部） ==========
+  var ball = document.createElement('div');
+  ball.id = 'fb-ball';
+ ball.innerHTML = '<span class="fb-icon" style="color:#fff;text-shadow:0 0 2px rgba(0,0,0,0.1);">✿</span>';
+
+
+  var menu = document.createElement('div');
+  menu.id = 'fb-menu';
+  menu.innerHTML = `
+    <button class="fb-btn fb-btn-back" id="fb-back">↩ 返回</button>
+    <button class="fb-btn fb-btn-exit" id="fb-exit">✕ 退出</button>
+    <button class="fb-btn fb-btn-hide" id="fb-hide">— 隐藏</button>
+  `;
+
+  var bar = document.createElement('div');
+  bar.id = 'fb-bar';
+
+  phoneContainer.appendChild(ball);
+  phoneContainer.appendChild(menu);
+  phoneContainer.appendChild(bar);
+
+  // ========== 初始位置：右上角 ==========
+  var containerWidth = phoneContainer.clientWidth;
+  var containerHeight = phoneContainer.clientHeight;
+
+  var currentX = containerWidth - 55;
+  var currentY = 55;
+
+  ball.style.left = currentX + 'px';
+  ball.style.top = currentY + 'px';
+
+  // ========== 拖动逻辑 ==========
+  var isDragging = false;
+  var hasMoved = false;
+  var startX, startY, ballStartX, ballStartY;
+  var menuVisible = false;
+
+  function onStart(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    isDragging = true;
+    hasMoved = false;
+
+    var point = e.touches ? e.touches[0] : e;
+    var rect = phoneContainer.getBoundingClientRect();
+    startX = point.clientX - rect.left;
+    startY = point.clientY - rect.top;
+    ballStartX = currentX;
+    ballStartY = currentY;
+  }
+
+  function onMove(e) {
+    if (!isDragging) return;
+    e.preventDefault();
+
+    var point = e.touches ? e.touches[0] : e;
+    var rect = phoneContainer.getBoundingClientRect();
+    var nowX = point.clientX - rect.left;
+    var nowY = point.clientY - rect.top;
+
+    var dx = nowX - startX;
+    var dy = nowY - startY;
+
+    if (Math.abs(dx) > 3 || Math.abs(dy) > 3) {
+      hasMoved = true;
+
+      var newX = ballStartX + dx;
+      var newY = ballStartY + dy;
+
+      var maxX = phoneContainer.clientWidth - 48;
+      var maxY = phoneContainer.clientHeight - 48;
+      newX = Math.max(5, Math.min(maxX, newX));
+      newY = Math.max(50, Math.min(maxY, newY));
+
+      currentX = newX;
+      currentY = newY;
+      ball.style.left = newX + 'px';
+      ball.style.top = newY + 'px';
+
+      hideMenu();
+    }
+  }
+
+  function onEnd(e) {
+    if (!isDragging) return;
+    isDragging = false;
+
+    if (!hasMoved) {
+      toggleMenu();
+    } else {
+      snapToEdge();
+    }
+  }
+
+  function snapToEdge() {
+    var midX = phoneContainer.clientWidth / 2;
+    var targetX;
+
+    if (currentX < midX) {
+      targetX = 5;
+    } else {
+      targetX = phoneContainer.clientWidth - 48;
+    }
+
+    ball.style.transition = 'left 0.2s ease';
+    ball.style.left = targetX + 'px';
+    currentX = targetX;
+
+    setTimeout(function() {
+      ball.style.transition = '';
+    }, 200);
+  }
+
+  // ========== 菜单逻辑 ==========
+  function toggleMenu() {
+    menuVisible ? hideMenu() : showMenu();
+  }
+
+  function showMenu() {
+    var menuWidth = 110;
+    var menuHeight = 140;
+
+    var menuX = currentX;
+    var menuY = currentY + 48;
+
+    if (currentX > phoneContainer.clientWidth / 2) {
+      menuX = currentX - menuWidth + 42;
+    }
+
+    if (currentY > phoneContainer.clientHeight - 200) {
+      menuY = currentY - menuHeight - 5;
+    }
+
+    menuX = Math.max(5, Math.min(phoneContainer.clientWidth - menuWidth - 5, menuX));
+
+    menu.style.left = menuX + 'px';
+    menu.style.top = menuY + 'px';
+    menu.classList.add('fb-show');
+    menuVisible = true;
+  }
+
+  function hideMenu() {
+    menu.classList.remove('fb-show');
+    menuVisible = false;
+  }
+
+  // ========== 绑定拖动事件 ==========
+  ball.addEventListener('touchstart', onStart, { passive: false });
+  ball.addEventListener('mousedown', onStart);
+  document.addEventListener('touchmove', onMove, { passive: false });
+  document.addEventListener('mousemove', onMove);
+  document.addEventListener('touchend', onEnd);
+  document.addEventListener('mouseup', onEnd);
+
+// ========== 返回按钮（修复版） ==========
+document.getElementById('fb-back').addEventListener('click', function(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  hideMenu();
+
+  // 优先尝试关闭模态框
+  var modals = phoneContainer.querySelectorAll('.modal, .action-sheet-overlay, [class*="modal"]');
+  var closedModal = false;
+
+  for (var j = modals.length - 1; j >= 0; j--) {
+    var modal = modals[j];
+    var mStyle = window.getComputedStyle(modal);
+    if (mStyle.display !== 'none' && mStyle.display !== '') {
+      var closeBtn = modal.querySelector('.close-btn, .cancel, [id*="close"], [class*="close"]');
+      if (closeBtn) {
+        closeBtn.click();
+        closedModal = true;
+        break;
+      } else {
+        modal.style.display = 'none';
+        closedModal = true;
+        break;
+      }
+    }
+  }
+
+  if (closedModal) return;
+
+  // 检查是否有聊天窗口打开
+  var chatWindow = document.getElementById('chatWindow');
+  if (chatWindow && chatWindow.style.display !== 'none') {
+    var backBtn = chatWindow.querySelector('.back-btn');
+    if (backBtn) {
+      backBtn.click();
+      return;
+    }
+  }
+
+  // 否则返回主屏幕
+  if (typeof window.showPage === 'function') {
+    window.showPage('homeScreen');
+  }
+});
+
+// ========== 退出按钮（修复版） ==========
+document.getElementById('fb-exit').addEventListener('click', function(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  hideMenu();
+
+  // 关闭所有模态框
+  var modals = phoneContainer.querySelectorAll('.modal, .action-sheet-overlay, [class*="modal"]');
+  modals.forEach(function(modal) {
+    modal.style.display = 'none';
+  });
+
+  // 关闭聊天窗口
+  var chatWindow = document.getElementById('chatWindow');
+  if (chatWindow) {
+    chatWindow.style.display = 'none';
+  }
+
+  // 返回主屏幕
+  if (typeof window.showPage === 'function') {
+    window.showPage('homeScreen');
+  }
+});
+
+  // ========== 隐藏按钮 ==========
+  document.getElementById('fb-hide').addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    hideMenu();
+
+    ball.classList.add('fb-hidden');
+
+    var midX = phoneContainer.clientWidth / 2;
+    bar.classList.remove('fb-left', 'fb-right');
+
+    if (currentX < midX) {
+      bar.classList.add('fb-show', 'fb-left');
+    } else {
+      bar.classList.add('fb-show', 'fb-right');
+    }
+    bar.style.top = currentY + 'px';
+  });
+
+  // ========== 小白条恢复 ==========
+  bar.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (bar.classList.contains('fb-left')) {
+      currentX = 5;
+    } else {
+      currentX = phoneContainer.clientWidth - 48;
+    }
+
+    ball.style.left = currentX + 'px';
+    ball.style.top = currentY + 'px';
+
+    bar.classList.remove('fb-show', 'fb-left', 'fb-right');
+    ball.classList.remove('fb-hidden');
+  });
+
+  // ========== 点击其他地方关闭菜单 ==========
+  document.addEventListener('click', function(e) {
+    if (!ball.contains(e.target) && !menu.contains(e.target)) {
+      hideMenu();
+    }
+  }, true);
+
+  console.log('✅ 悬浮球已初始化 - 浅粉色 / 右上角 / 已修复');
+})();
+</script>
+
+
+</body>
+</html>
